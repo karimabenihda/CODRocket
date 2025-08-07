@@ -49,7 +49,7 @@
     ];
 @endphp
 
-<div style="background-color: " class="px-[10px] md:px-[70px] max-w-[1340px] py-1 mx-auto">
+<div  class="px-[10px] md:px-[70px] max-w-[1340px] mx-auto">
     <div class="py-5 px-4 text-center">
         <h1 style="font-size: 45px" class="text-[#7a3189] font-bold  mb-2">
             {{ __('translation.services.title') }}
@@ -65,7 +65,7 @@
         </div>
     </div>
 
-    <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-5">
+    <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-5 !pb-10">
         @foreach ($cards as $card)
             <div class="rounded-xl p-6 shadow-sm {{ $card['bg'] }} flex flex-col justify-between">
                 <div>

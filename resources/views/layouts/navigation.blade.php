@@ -1,78 +1,132 @@
 <nav x-data="{ isOpen: false }" class="bg-white border-b border-gray-100">
-  <nav class="bg-white py-4 px-[10px] md:px-[55px] max-w-[1340px] mx-auto">
-    <div class="flex items-center justify-between">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-4">
+        <div class="flex items-center justify-between">
+            <!-- Left: Logo -->
+            <div class="flex-shrink-0">
+                <a href="{{ url('/') }}">
+                    <img src="{{ asset('images/logo.png') }}" class="h-7 w-auto !pl-10 sm:pl-0" alt="Logo" />
+                </a>
+            </div>
 
-      <!-- Left: Logo -->
-      <div>
-        <a href="{{ url('/') }}">
-          <img src="{{ asset('images/logo.png') }}" height="40" width="170" class="pl-[7px] md:pl-0" alt="Logo" />
-        </a>
-      </div>
+            <!-- Center: Nav links (Hidden on mobile, shown on desktop) -->
+            {{-- <div class="hidden lg:flex lg:flex-1 lg:justify-center">
+               
+            </div> --}}
 
-      <!-- Center: Nav links -->
-      <div class="flex-1 flex justify-center">
-        <ul class="flex items-center gap-12" x-data="{ dropdownOpen: false }">
-          <!-- Dropdown menu -->
-          <li class="relative"
-              @mouseenter="dropdownOpen = true" 
-              @mouseleave="dropdownOpen = false"
-          >
-            <button
-              @click="dropdownOpen = !dropdownOpen"
-              class="flex items-center gap-1 text-gray-800 font-medium hover:text-[#7a3189]"
-              type="button"
-              aria-haspopup="true"
-              :aria-expanded="dropdownOpen.toString()"
-            >
-              {{ __('translation.navbar.lien1') }}
-              <svg xmlns="http://www.w3.org/2000/svg" class="h-4 w-4" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7" />
-              </svg>
-            </button>
+            <!-- Right: Buttons and Language Switcher -->
+            <div class="hidden lg:!flex !items-center gap-4">
+               <ul class="flex items-center gap-8" x-data="{ dropdownOpen: false }">
+                    <!-- Dropdown menu -->
+                    <li class="relative"
+                        @mouseenter="dropdownOpen = true"
+                        @mouseleave="dropdownOpen = false">
+                        <button
+                            @click="dropdownOpen = !dropdownOpen"
+                            class="flex items-center gap-1 !text-gray-800 font-medium hover:!text-[#7a3189d0] focus:outline-none"
+                            type="button"
+                            aria-haspopup="true"
+                            :aria-expanded="dropdownOpen.toString()">
+                            {{ __('translation.navbar.lien1') }}
+                            <svg class="h-4 w-4" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7" />
+                            </svg>
+                        </button>
+                        <ul
+                            x-show="dropdownOpen"
+                            x-transition
+                            class="absolute top-full left-0 mt-2 w-36 bg-white shadow-lg rounded-md py-2 z-10">
+                            <li class="px-4 py-2 hover:bg-gray-100 cursor-pointer text-sm text-gray-700">Service 1</li>
+                            <li class="px-4 py-2 hover:bg-gray-100 cursor-pointer text-sm text-gray-700">Service 2</li>
+                            <li class="px-4 py-2 hover:bg-gray-100 cursor-pointer text-sm text-gray-700">Service 3</li>
+                        </ul>
+                    </li>
 
-            <ul
-              x-show="dropdownOpen"
-              x-transition
-              style="width: 140px"
-              class="absolute top-full left-0 mt-2 bg-white shadow-md rounded-md py-2  z-10"
-              style="display: none;"
-            >
-              <li class="px-4 py-2 hover:bg-gray-100 cursor-pointer">Service 1</li>
-              <li class="px-4 py-2 hover:bg-gray-100 cursor-pointer">Service 2</li>
-              <li class="px-4 py-2 hover:bg-gray-100 cursor-pointer">Service 3</li>
+                    <!-- Other nav links -->
+                    @php
+                        $navLinks = [
+                            'lien2' => '/pricing',
+                            'lien3' => '/contact',
+                        ];
+                    @endphp
+                    @foreach($navLinks as $key => $link)
+                        <li>
+                            <a href="{{ url($link) }}"
+                               class="!text-gray-800 hover:!text-[#7a3189] !font-medium !px-4 !transition-colors">
+                                {{ __('translation.navbar.' . $key) }}
+                            </a>
+                        </li>
+                    @endforeach
+                </ul>
+                @include('landing.components.language-switcher')
+                <button class="!bg-purple-100 hover:!bg-purple-200 !text-[#7a3189] font-medium !px-6 !py-2 rounded-full transition-colors">
+                    {{ __('translation.home.button3') }}
+                </button>
+                <button class="!bg-[#7a3189] hover:!bg-[#7a3189d0] !text-white font-medium !px-6 !py-2 rounded-full flex items-center gap-2 transition-colors">
+                    <span>{{ __('translation.home.button1') }}</span>
+                </button>
+            </div>
+
+            <!-- Mobile Menu Button -->
+            <div class="lg:!hidden flex items-center">
+                <button @click="isOpen = !isOpen" class="text-gray-800 hover:text-[#7a3189d0] focus:outline-none">
+                    <svg x-show="!isOpen" class="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16m-7 6h7" />
+                    </svg>
+                    <svg x-show="isOpen" class="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12" />
+                    </svg>
+                </button>
+            </div>
+        </div>
+
+        <!-- Mobile Menu -->
+        <div x-show="isOpen" x-transition class="lg:hidden mt-4">
+            <ul class="flex flex-col gap-4" x-data="{ dropdownOpen: false }">
+                <!-- Dropdown menu -->
+                <li>
+                    <button
+                        @click="dropdownOpen = !dropdownOpen"
+                        class="flex items-center gap-1 text-gray-800 font-medium hover:text-[#7a3189d0] w-full text-left"
+                        type="button"
+                        aria-haspopup="true"
+                        :aria-expanded="dropdownOpen.toString()">
+                        {{ __('translation.navbar.lien1') }}
+                        <svg class="h-4 w-4" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7" />
+                        </svg>
+                    </button>
+                    <ul
+                        x-show="dropdownOpen"
+                        x-transition
+                        class="mt-2 bg-white shadow-lg rounded-md py-2">
+                        <li class="px-4 py-2 hover:bg-gray-100 cursor-pointer text-sm text-gray-700">Service 1</li>
+                        <li class="px-4 py-2 hover:bg-gray-100 cursor-pointer text-sm text-gray-700">Service 2</li>
+                        <li class="px-4 py-2 hover:bg-gray-100 cursor-pointer text-sm text-gray-700">Service 3</li>
+                    </ul>
+                </li>
+
+                <!-- Other nav links -->
+                @foreach($navLinks as $key => $link)
+                    <li>
+                        <a href="{{ url($link) }}"
+                           class="text-gray-800 hover:!text-[#7a3189d0] font-medium block py-2">
+                            {{ __('translation.navbar.' . $key) }}
+                        </a>
+                    </li>
+                @endforeach
+
+                <!-- Language Switcher and Buttons -->
+                <li>@include('landing.components.language-switcher')</li>
+                <li class="flex">
+                    <button class="bg-purple-100 hover:!bg-purple-200 text-[#7a3189d0] font-medium px-6 py-2 border rounded-full w-full text-left transition-colors">
+                        {{ __('translation.home.button3') }}
+                    </button>
+               
+                    <button class="!bg-[#7a3189] hover:!bg-[#7a3189d0] !text-white font-medium px-6 py-2 rounded-full w-full text-left flex items-center gap-2 transition-colors">
+                        <span>{{ __('translation.home.button1') }}</span>
+                    </button>
+                </li>
             </ul>
-          </li>
-
-          <!-- Other nav links -->
-          @php
-            $navLinks = [
-              'lien2' => '/pricing',
-              'lien3' => '/contact',
-            ];
-          @endphp
-
-          @foreach($navLinks as $key => $link)
-            <li >
-              <a href="{{ url($link) }}" class="text-gray-800 hover:text-[#7a3189] px-6 cursor-pointer">
-                {{ __('translation.navbar.' . $key) }}
-              </a>
-            </li>
-          @endforeach
-        </ul>
-      </div>
-
-      <!-- Right: Buttons -->
-      <div class="flex gap-3 items-center">
-        @include('landing.components.language-switcher')
-
-        <button class="bg-purple-100 hover:bg-purple-300 border font-medium px-6 py-2 rounded-full text-[#7a3189] transition">
-          {{ __('translation.home.button3') }}
-        </button>
-
-<button style="background-color: #78328a ;color:" class=" hover:bg-fuchsia-700 text-white font-medium px-6 py-2 rounded-full flex items-center justify-center gap-2 transition-colors">
-  <span>{{ __('translation.home.button1') }}</span>
-</button>
-      </div>
+        </div>
     </div>
-  </nav>
 </nav>

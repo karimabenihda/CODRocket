@@ -71,32 +71,32 @@ return [
         ],
         'section1' => [
             'titre' => 'Operations',
-            'p' => 'Centralize order tracking, task assignment, and expense monitoring...',
+            'p' => 'Centralize order tracking, task assignment, and expense monitoring in real-time for efficient business operations.',
             'a' => 'Master Your Operations',
         ],
         'section2' => [
             'titre' => 'Inventory Tracking',
-            'p' => 'Track inventory across locations...',
+            'p' => 'Track inventory across locations and manage transfers with real-time updates to avoid stockouts.',
             'a' => 'Optimize Your Inventory',
         ],
         'section3' => [
             'titre' => 'Store And LandingPage',
-            'p' => 'Create conversion-driven online stores...',
+            'p' => 'Create conversion-driven online stores or landing pages with easy, no-code customizable templates.',
             'a' => 'Launch Your Store',
         ],
         'section4' => [
             'titre' => 'Integrations',
-            'p' => 'Sync Shopify, Amazon...',
+            'p' => 'Sync Shopify, Amazon, and more into one dashboard to manage orders and inventory seamlessly.',
             'a' => 'Connect Your Platforms',
         ],
         'section5' => [
             'titre' => 'Manage Delivery',
-            'p' => 'Coordinate in-house agents or integrate...',
+            'p' => 'Coordinate in-house agents or integrate with logistics providers via API for one-click fulfillment.',
             'a' => 'Automate Your Delivery',
         ],
         'section6' => [
             'titre' => 'Analytics',
-            'p' => 'Monitor sales and inventory...',
+            'p' => 'Monitor sales and inventory with intuitive dashboards to drive data-informed business decisions.',
             'a' => 'Analyze Your Growth',
         ],
     ],
