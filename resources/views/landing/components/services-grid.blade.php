@@ -57,7 +57,6 @@
         <p class="text-gray-600 text-sm mb-6">
             {{ __('translation.services.paragraph') }}
         </p>
-
         <div class="flex flex-col sm:flex-row gap-4 justify-center items-center">
            <button style="background-color: #78328a ;color:" class=" hover:bg-fuchsia-700 text-white font-medium px-6 py-2 rounded-full flex items-center justify-center gap-2 transition-colors">
   <span>{{ __('translation.home.button1') }}</span>

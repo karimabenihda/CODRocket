@@ -34,6 +34,9 @@
             <main>
                 {{-- {{ $slot }} --}}
                   @yield('content')
+  @include('landing.components.clients')
+  @include('landing.components.faqs')
+  @include('landing.components.card')
             </main>
         </div>
           @include('landing.components.footer')

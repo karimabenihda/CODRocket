@@ -1,14 +1,17 @@
 <script src="//unpkg.com/alpinejs" defer></script>
-@extends('layouts.app') 
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/glightbox/dist/css/glightbox.min.css">
+<script src="https://cdn.jsdelivr.net/npm/glightbox/dist/js/glightbox.min.js"></script>
 
+@extends('layouts.app') 
 @section('content')
-<div class="bg-[#7a3189] overflow-x-hidden px-[10px] md:px-[45px] pb-20">
+
+<div class="bg-[#7a3189] overflow-x-hidden !px-[10px] md:px-[45px] pb-20">
   <div class="flex items-center pt-2 justify-center">
     {{-- <div class="flex flex-row-reverse md:flex-row items-center max-w-[1340px] w-full gap-9"> --}}
       <div class="flex !flex-col-reverse px-[20px]  md:!flex-row items-center max-w-[1340px] !w-full gap-9">
 
       <!-- Left Text Section -->
-      <div class="pl-5 md:-pl-3 lg:-pl-13 w-full md:w-[55%] z-10">
+      <div class="pl-5 md:-pl-3 lg:-pl-13 !pt-10 w-full md:w-[55%] z-10">
         <h1 style="font-size: 50px" class="text-white font-bold text-2xl md:text-3xl leading-tight mb-4">
           {{ __('translation.home.title') }}
         </h1>
@@ -16,49 +19,19 @@
           {{ __('translation.home.paragraph') }}
         </p>
 
-        <div class="flex flex-col sm:flex-row gap-4">
-          <button class="w-full sm:w-auto bg-transparent border border-white text-white font-medium px-3 py-3 rounded-full hover:bg-white hover:text-[#7a3189] transition">
+        <div class="!w-full flex md:!flex-row !flex-col gap-4">
+          <button class="!w-[300px] sm:w-auto bg-transparent border border-white text-white font-medium px-3 py-3 rounded-full hover:bg-white hover:text-[#7a3189] transition">
             {{ __('translation.home.button1') }}
-          </button>
-         <div x-data="{ showVideo: false }" class="relative z-10">
-    <!-- Button -->
-    <button
-        @click="showVideo = true"
-        style="color:#7a3189"
-        class="w-full sm:w-auto bg-white text-[#7a3189] font-medium px-3 py-3 rounded-full flex items-center justify-center gap-2 hover:bg-purple-100 transition"
-    >
-        <span>{{ __('translation.home.button2') }}</span>
-        <x-heroicon-o-play class="w-5 h-5" stroke="#7a3189" />
-    </button>
+          </button>    
+    <a href="https://www.youtube.com/watch?v=JJHlN2W2dRQ" 
+   class="!w-[300px] sm:w-auto !bg-white !text-[#7a3189] font-medium px-3 py-3 rounded-full !flex items-center justify-center gap-2 hover:!bg-purple-100 transition glightbox"
+   data-gallery="video-gallery" 
+   data-type="video">
+    <span>{{ __('translation.home.button2') }}</span>
+    <x-heroicon-o-play class="w-5 h-5" stroke="#7a3189" />
+</a>
 
-    <!-- Video Modal -->
-    <div
-        x-show="showVideo"
-        x-cloak
-        class="fixed inset-0 bg-black bg-opacity-50 flex items-center justify-center z-50"
-    >
-        <div class="bg-white rounded-lg overflow-hidden shadow-lg max-w-3xl w-full relative">
-            <!-- Close Button -->
-            <button
-                @click="showVideo = false"
-                class="absolute top-2 right-2 text-gray-600 hover:text-gray-900 text-2xl font-bold"
-            >
-                &times;
-            </button>
 
-            <!-- Video iframe -->
-            <div class="aspect-w-16 aspect-h-9 -z-400">
-                <iframe
-                    src="https://youtu.be/JJHlN2W2dRQ?si=o4kCV8ZWyhbSDW_v" 
-                    title="Video"
-                    frameborder="0"
-                    allowfullscreen
-                    class="w-full h-full "
-                ></iframe>
-            </div>
-        </div>
-    </div>
-</div>
 
         </div>
       </div>
@@ -112,10 +85,17 @@
 <div class="space-y-[100px]">
   @include('landing.components.integration')
   @include('landing.components.services-grid')
+  {{-- @include('landing.components.prices') --}}
   {{-- @include('components.about') --}}
-  @include('landing.components.prices')
-  @include('landing.components.clients')
-  @include('landing.components.faqs')
-  @include('landing.components.card')
+
 </div>
 @endsection
+<script>
+    document.addEventListener("DOMContentLoaded", function() {
+        const lightbox = GLightbox({
+            selector: '.glightbox',
+            touchNavigation: true,
+            autoplayVideos: true
+        });
+    });
+</script>

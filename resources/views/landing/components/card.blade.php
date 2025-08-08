@@ -3,7 +3,7 @@
     $alignment = $isRTL ? 'text-right' : 'text-left';
 @endphp
 
-<div class="my-7 max-w-[1440px] px-[10px] md:px-[70px] mx-auto flex items-center justify-center " dir="{{ $isRTL ? 'rtl' : 'ltr' }}">
+<div class="!my-[90px] max-w-[1440px] px-[10px] md:px-[70px] mx-auto flex items-center justify-center " dir="{{ $isRTL ? 'rtl' : 'ltr' }}">
     <div class="bg-[#7a3189] flex flex-row  items-center justify-between rounded-3xl !px-10 shadow-md !w-full max-w-4xl">
         <div class="md:w-1/2 {{ $alignment }} space-y-6 !mb-6 md:!mb-0">
            

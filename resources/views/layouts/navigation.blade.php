@@ -4,13 +4,12 @@
             <!-- Left: Logo -->
             <div class="flex-shrink-0">
                 <a href="{{ url('/') }}">
-                    <img src="{{ asset('images/logo.png') }}" class="h-7 w-auto !pl-10 sm:pl-0" alt="Logo" />
+                    <img src="{{ asset('images/logo.png') }}" class="h-7 w-auto md:!pl-0 !pl-5" alt="Logo" />
                 </a>
             </div>
 
             <!-- Center: Nav links (Hidden on mobile, shown on desktop) -->
             {{-- <div class="hidden lg:flex lg:flex-1 lg:justify-center">
-               
             </div> --}}
 
             <!-- Right: Buttons and Language Switcher -->
@@ -34,10 +33,14 @@
                         <ul
                             x-show="dropdownOpen"
                             x-transition
-                            class="absolute top-full left-0 mt-2 w-36 bg-white shadow-lg rounded-md py-2 z-10">
-                            <li class="px-4 py-2 hover:bg-gray-100 cursor-pointer text-sm text-gray-700">Service 1</li>
-                            <li class="px-4 py-2 hover:bg-gray-100 cursor-pointer text-sm text-gray-700">Service 2</li>
-                            <li class="px-4 py-2 hover:bg-gray-100 cursor-pointer text-sm text-gray-700">Service 3</li>
+                            class="absolute top-full left-0 mt-2 w-36 bg-white shadow-lg rounded-md py-2 z-30">
+                        <li class="px-4 py-2 hover:bg-gray-100 cursor-pointer text-sm text-gray-700">
+                            <a href="{{ url('/operations') }}">Operations</a></li>
+                        <li class="px-4 py-2 hover:bg-gray-100 cursor-pointer text-sm text-gray-700">Inventory Tracking</li>
+                        <li class="px-4 py-2 hover:bg-gray-100 cursor-pointer text-sm text-gray-700">Store And LandingPage</li>
+                        <li class="px-4 py-2 hover:bg-gray-100 cursor-pointer text-sm text-gray-700">Integrations</li>
+                        <li class="px-4 py-2 hover:bg-gray-100 cursor-pointer text-sm text-gray-700">Manage Delivery</li>
+                        <li class="px-4 py-2 hover:bg-gray-100 cursor-pointer text-sm text-gray-700">Analytics</li>
                         </ul>
                     </li>
 
@@ -99,11 +102,17 @@
                         x-show="dropdownOpen"
                         x-transition
                         class="mt-2 bg-white shadow-lg rounded-md py-2">
-                        <li class="px-4 py-2 hover:bg-gray-100 cursor-pointer text-sm text-gray-700">Service 1</li>
-                        <li class="px-4 py-2 hover:bg-gray-100 cursor-pointer text-sm text-gray-700">Service 2</li>
-                        <li class="px-4 py-2 hover:bg-gray-100 cursor-pointer text-sm text-gray-700">Service 3</li>
+                        <li class="px-4 py-2 hover:bg-gray-100 cursor-pointer text-sm text-gray-700">Operations</li>
+                        <li class="px-4 py-2 hover:bg-gray-100 cursor-pointer text-sm text-gray-700">Inventory Tracking</li>
+                        <li class="px-4 py-2 hover:bg-gray-100 cursor-pointer text-sm text-gray-700">Store And LandingPage</li>
+                        <li class="px-4 py-2 hover:bg-gray-100 cursor-pointer text-sm text-gray-700">Integrations</li>
+                        <li class="px-4 py-2 hover:bg-gray-100 cursor-pointer text-sm text-gray-700">Manage Delivery</li>
+                        <li class="px-4 py-2 hover:bg-gray-100 cursor-pointer text-sm text-gray-700">Analytics</li>
                     </ul>
                 </li>
+
+
+
 
                 <!-- Other nav links -->
                 @foreach($navLinks as $key => $link)
@@ -114,7 +123,10 @@
                         </a>
                     </li>
                 @endforeach
-
+<div class="flex gap-2">
+    <a href="{{ route('lang.switch', 'en') }}" class="!px-3 py-1 !text-black bg-gray-200 rounded">English</a>
+    <a href="{{ route('lang.switch', 'ar') }}" class="!px-3 py-1 !text-black bg-gray-200 rounded">العربية</a>
+</div>
                 <!-- Language Switcher and Buttons -->
                 <li>@include('landing.components.language-switcher')</li>
                 <li class="flex">

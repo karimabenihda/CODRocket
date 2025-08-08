@@ -42,7 +42,7 @@
         ],
     ];
 @endphp
-<div x-data="{ activeId: 3 }" class="px-2 max-w-[1340px] mx-auto">
+<div x-data="{ activeId: 3 }" class="px-2 max-w-[1340px] !py-[90px] mx-auto">
    
     <h1 class="text-4xl text-[#7a3189] font-bold text-center " style="font-size: 45px">
           {{ __('translation.clients.sectionTitle') }} 
@@ -99,7 +99,7 @@
 
 
  {{-- Desktop View --}}
-<div class="hidden md:flex flex-row gap-4 justify-center mb-10">
+<div class="hidden md:flex flex-row gap-4 justify-center mb-1">
     @foreach ($testimonials as $testimonial)
         <div
             x-on:click="activeId = {{ $testimonial['id'] }}"

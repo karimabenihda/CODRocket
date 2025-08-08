@@ -264,6 +264,34 @@ return [
     'help_center' => [
         'title' => 'How can we help you?',
         'search' => 'Search for your answer',
+
+        
+        'items' => [
+            'company_formation' => [
+                'title' => 'Company Formation',
+                'description' => 'From state formations to bank account setup, learn everything you need to start and run your company!',
+            ],
+            'ein_itin' => [
+                'title' => 'EIN & ITIN',
+                'description' => 'Anything to do with the EIN of a company',
+            ],
+            'taxation_compliance' => [
+                'title' => 'Taxation & Compliance',
+                'description' => 'Master your company’s finances with our bookkeeping solutions.',
+            ],
+            'misc_faqs' => [
+                'title' => 'Miscellaneous + FAQs',
+                'description' => 'General frequently asked questions',
+            ],
+            'codrocket_analytics' => [
+                'title' => 'CodRocket Analytics',
+                'description' => 'Transform your business data into actionable insights. Track performance, identify trends, and make confident decisions that drive real results.',
+            ],
+            'compliance_filings' => [
+                'title' => 'Compliance Filings',
+                'description' => 'Simplify your business taxes with guides on structures, deadlines, and smart tax tips.',
+            ],
+        ],
     ],
 
     'contact' => [

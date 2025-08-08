@@ -1,15 +1,18 @@
+    <script src="https://cdn.tailwindcss.com"></script>
+@extends('layouts.app') 
+@section('content')
 @php
     $cards = [
         [
             'id' => 'card1',
             'priceMonthly' => 19,
-            'priceAnnually' => 16,
+            'priceAnnually' => 190,
             'isCustom' => false,
         ],
         [
             'id' => 'card2',
             'priceMonthly' => 59,
-            'priceAnnually' => 49,
+            'priceAnnually' => 590,
             'isCustom' => false,
         ],
         [
@@ -20,7 +23,7 @@
     ];
 @endphp
 
-<section x-data="{ isAnnual: true }" class="bg-purple-50 py-12">
+<section x-data="{ isAnnual: true }" class="bg-purple-50 !py-[120px]">
     <div class="text-center max-w-[1340px] mx-auto px-[10px] md:px-[70px]">
         <h1 class="text-4xl font-bold text-gray-900" style="font-size: 45px">
             {{ __('translation.pricing.title.do') }}
@@ -110,3 +113,4 @@
         }));
     });
 </script>
+@endsection

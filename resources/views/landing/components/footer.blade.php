@@ -31,7 +31,7 @@
         <div>
             <h4 class="font-semibold mb-4">{{ __('translation.footer.informations.titre') }}</h4>
             <ul class="space-y-2 text-sm text-gray-600 font-medium">
-                <li>{{ __('translation.footer.informations.lien1') }}</li>
+                <li><a href="{{ url('/pricing') }}">{{ __('translation.footer.informations.lien1') }}</a> </li>
                 <li>{{ __('translation.footer.informations.lien2') }}</li>
                 <li>{{ __('translation.footer.informations.lien3') }}</li>
                 <li>{{ __('translation.footer.informations.lien4') }}</li>
@@ -55,24 +55,27 @@
 
     <!-- Footer Bottom -->
     <div class="flex flex-col lg:flex-row justify-between items-center gap-4 text-sm text-gray-400 pt-6">
-        <p class="text-[#000000]">
-            Designed & Developed by
-            <a href="https://technopek.ma/" class="underline font-semibold">Technopek – Digital Agency</a>
-        </p>
+       <p class="flex items-center gap-2 text-[#000000]">
+    Designed & Developed by
+    <a href="https://technopek.ma/" class="font-semibold !flex items-center">
+        <img src="https://technopek.ma/wp-content/uploads/2023/01/logo-07.svg" alt="Technopek" class="h-6 pb-1" />
+    </a>
+</p>
+
         <p class="text-[#000000]">©Cod Rocket 2025</p>
         <p class="text-[#000000]">{{ __('translation.footer.rights') }}</p>
         <div class="flex gap-4 text-gray-600 font-medium">
-            <a href="https://facebook.com/CODRocket" class="hover:text-[#7a3189]">
-                <i class="fab fa-facebook-f w-5 h-5"></i>
+            <a href="https://facebook.com/CODRocket">
+                <i class="fab fa-facebook-f w-5 h-5 text-[#7a3189]"></i>
             </a>
-            <a href="https://instagram.com/codrocket1" class="hover:text-[#7a3189]">
-                <i class="fab fa-instagram w-5 h-5"></i>
+            <a href="https://instagram.com/codrocket1" >
+                <i class="fab fa-instagram w-5 h-5 text-[#7a3189]"></i>
             </a>
-            <a href="https://www.youtube.com/@codrocket" class="hover:text-[#7a3189]">
-                <i class="fab fa-youtube w-5 h-5"></i>
+            <a href="https://www.youtube.com/@codrocket">
+                <i class="fab fa-youtube w-5 h-5 text-[#7a3189]"></i>
             </a>
-            <a href="mailto:Support@codrocket.com" class="hover:text-[#7a3189]">
-                <i class="fas fa-envelope w-5 h-5"></i>
+            <a href="mailto:Support@codrocket.com">
+                <i class="fas fa-envelope w-5 h-5 text-[#7a3189]"></i>
             </a>
         </div>
     </div>

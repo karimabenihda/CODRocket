@@ -15,20 +15,16 @@ class LangController extends Controller
      * @param string $locale
      * @return \Illuminate\Http\RedirectResponse
      */
-    public function switch($locale)
-    {
-        // Define supported locales, adjust as needed
-        $availableLocales = ['en', 'ar'];
+public function switch($locale)
+{
+    $availableLocales = ['en', 'ar']; // your supported locales
 
-        if (in_array($locale, $availableLocales)) {
-            // Store the selected locale in session
-            Session::put('locale', $locale);
-
-            // Optionally, you can also set the app locale immediately
-            App::setLocale($locale);
-        }
-
-        // Redirect back to previous page or homepage if no previous URL
-        return Redirect::back();
+    if (in_array($locale, $availableLocales)) {
+        session(['locale' => $locale]);
+        app()->setLocale($locale);
     }
+
+    return redirect()->back();
+}
+
 }

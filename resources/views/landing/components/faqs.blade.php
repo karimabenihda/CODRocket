@@ -8,7 +8,7 @@
     }
 @endphp
 
-<div x-data="{ active: null, showAll: false }" class="bg-purple-50 !py-[80px]">
+<div x-data="{ active: null, showAll: false }" class="bg-purple-50 !py-[90px]">
     <div class="max-w-4xl mx-auto px-4 ">
           <h1 style="font-size: 45px" class="text-[#7a3189] text-center font-bold  mb-2">
        FAQs
